@@ -1,6 +1,6 @@
 # dio_rxdart_bloc
 
-A new Flutter project.
+A practice project following the .
 
 ## Getting Started
 

@@ -25,11 +25,11 @@ dependencies:
   cupertino_icons: ^0.1.2
   dio: ^3.0.8
   rxdart: ^0.23.1
-  
+  scoped_model: ^1.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

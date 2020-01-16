@@ -1,5 +1,8 @@
 import 'package:dio_rxdart_bloc/bloc/user_bloc.dart';
+import 'package:dio_rxdart_bloc/layout_cheat_sheet.dart';
+import 'package:dio_rxdart_bloc/scoped_model_demo/scoped_model_demo_widget.dart';
 
+import 'scoped_model_demo/scoped_model_counter.dart';
 import 'user_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +17,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
         textTheme: TextTheme(
-            title: TextStyle(fontSize: 30, color: Colors.white),
-            subtitle: TextStyle(fontSize: 20, color: Colors.white),
-            body1: TextStyle(fontSize: 15, color: Colors.white)),
+            title: TextStyle(fontSize: 30, color: Colors.red),
+            subtitle: TextStyle(fontSize: 20, color: Colors.red),
+            body1: TextStyle(fontSize: 15, color: Colors.red)),
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // 为了调试ScopedModel而注释掉MyHomePage
+      //home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // 测试ScopedModel用
+      // home: ScopedModelDemoWidget(model: MyModel()),
+      // 测试flutter布局的widget用
+      home: LayoutCheatSheet(),
     );
   }
 }
