@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'bloc/user_bloc.dart';
-import 'model/user.dart';
-import 'model/user_response.dart';
+import 'user_bloc.dart';
+import '../model/user.dart';
+import '../model/user_response.dart';
 
 class UserWidget extends StatefulWidget {
   @override
@@ -15,11 +15,14 @@ class _UserWidgetState extends State<UserWidget> {
   @override
   void initState() {
     super.initState();
+    print("_UserWidgetState initSate()");
     bloc.getUser();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("_UserWidgetState build()");
+
     return StreamBuilder<UserResponse>(
       stream: bloc.subject.stream,
       builder: (context, AsyncSnapshot<UserResponse> snapshot) {

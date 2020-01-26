@@ -1,0 +1,24 @@
+import 'dart:collection';
+
+import 'package:flutter/material.dart';
+
+class CartModel extends ChangeNotifier {
+  final List<Item> _items = [
+    Item("item1"),
+  ];
+
+  UnmodifiableListView<Item> get items => UnmodifiableListView(_items);
+
+  int get totalPrice => items.length * 42;
+
+  void add(Item newItem) {
+    this._items.add(newItem);
+    // this clall tells the widgets that are listening to this model to rebuild
+    notifyListeners();
+  }
+}
+
+class Item {
+  String title;
+  Item(this.title);
+}

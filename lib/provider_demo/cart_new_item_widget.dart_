@@ -1,0 +1,36 @@
+import 'package:dio_rxdart_bloc/provider_demo/cart_model.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+class CartNewItemWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("New Item"),
+      ),
+      body: ChangeNotifierProvider(
+        create: (context) => CartModel(),
+        child: Consumer<CartModel>(builder: (context, cart, child) {
+          return Column(
+            children: <Widget>[
+              Text("total price: ${cart.totalPrice}"),
+              RaisedButton(
+                child: Text("New Item"),
+                onPressed: () {
+                  cart.add(Item("item2"));
+                },
+              ),
+            ],
+          );
+        }),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Text("Back"),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+    );
+  }
+}

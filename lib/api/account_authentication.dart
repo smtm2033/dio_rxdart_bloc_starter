@@ -1,13 +1,13 @@
-import '../model/user_response.dart';
+import 'package:dio_rxdart_bloc/model/account.dart';
 import 'package:dio/dio.dart';
 
-class UserApiProvider {
+class AccountAuthentication {
   final String _endpoint = "https://randomuser.me/api/";
   // final Dio _dio = Dio();
 
   Dio _dio;
 
-  UserApiProvider() {
+  AccountAuthentication() {
     BaseOptions options = BaseOptions(
         receiveTimeout: 5000, connectTimeout: 5000, sendTimeout: 5000);
     _dio = Dio(options);
@@ -15,16 +15,16 @@ class UserApiProvider {
     _setupInterceptor();
   }
 
-  Future<UserResponse> getUser() async {
+  Future<Account> login() async {
     try {
       Response response = await _dio.get(_endpoint);
       // print(response.data);
-      return UserResponse.fromJson(response.data);
+      return Account.fromJson(response.data);
     } on DioError catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");
-      return UserResponse.withError(_handleDioError(error));
+      return Account.withError(_handleDioError(error));
     } catch (error) {
-      return UserResponse.withError(
+      return Account.withError(
           "Failed to retrive data from server. Please try again.");
     }
   }
