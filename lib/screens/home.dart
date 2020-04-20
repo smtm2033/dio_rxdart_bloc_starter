@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                print('Loginout...');
+                print('Logout...');
               },
               child: Text("Logout"),
             ),
